@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+    flask-app:
+        container_name: flask-app
+        build: .
+        restart: always
+        ports:
+            - '5005:5005'
+        volumes:
+            - ./app:/app
+        networks:
+            - backend
+
+    mysql-db:
+        container_name: mysql-db
+        image: mysql:5.7
+        platform: linux/amd64
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: jiggyiscool
+            MYSQL_DATABASE: users
+        ports:
+            - '3308:3306'
+        volumes:
+            - ./db/init-scripts:/docker-entrypoint-initdb.d
+        networks:
+            - backend
+
+networks:
+    backend:
+
+volumes:
+    app:
+    database:

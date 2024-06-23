@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <br>
+    <div>
+        <h6>
+            This is a temporary form, please use this to test functionalities 
+            and remember do not <span class="fw-bold">push</span> this to production!
+        </h6>
+        <form action="#" method="POST">
+            <div class="mb-4">
+                <label for="email" class="form-label"><strong>Please enter your email address</strong></label>
+                <input type="email" id="email" class="form-control border-success" placeholder="name@example.com" name="email">
+                <br>
+                <button type="submit" class="btn btn-primary">Check</button>
+            </div>
+        </form>
+        {% if response == "not found"%}
+        <div class="h4 pb-2 mb-4 text-danger border-bottom border-danger">
+            Not found
+          </div>
+        {% elif response != None%}
+        {% for row in response %}
+        {% for stuff in row %}
+        <tr>
+            <td>{{stuff}}</td>
+        </tr>
+        {% endfor %}
+        {% endfor %}
+        {% endif %}
+
+    </div>
+
+{% endblock %}

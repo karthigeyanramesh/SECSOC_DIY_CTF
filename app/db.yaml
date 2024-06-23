@@ -1,0 +1,4 @@
+mysql_host: 'mysql-db'
+mysql_user: 'jig'
+mysql_password: 'ushouldntbehere'
+mysql_db: 'users'

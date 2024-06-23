@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <br>
+    <div>
+        <h6>
+            Hi Welcome to SecSoc's VIP subscription service! To check if you have
+            subscribed to our content using your email, please use the form to 
+            check.
+        </h6>
+        <br>
+        <form action="/" method="POST">
+            <div class="mb-4">
+                <label for="email" class="form-label"><strong>Please enter your email address</strong></label>
+                <input type="email" id="email" class="form-control border-success" placeholder="name@example.com" name="email">
+                <br>
+                <button type="submit" class="btn btn-custom">Check</button>
+            </div>
+        </form>
+        <!-- The form above is currently not working and is out of action, please
+             refer to the temporary form that is kept safe and secret - from admin-->
+        {% if status == "sent" %}
+        <div class="h4 pb-2 mb-4 text-danger border-bottom border-danger">
+            Form Error
+          </div>
+        {% endif %}
+    </div>
+{% endblock %}
